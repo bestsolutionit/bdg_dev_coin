@@ -93,7 +93,7 @@ static void CheckBlockIndex(const Consensus::Params& consensusParams);
 /** Constant stuff for coinbase transactions we create: */
 CScript COINBASE_FLAGS;
 
-const std::string strMessageMagic = "Bitcoin Gold Signed Message:\n";
+const std::string strMessageMagic = "Micro Bitcoin Signed Message:\n";
 
 // Internal stuff
 namespace {
@@ -2804,6 +2804,13 @@ static bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state,
 
     // Check proof of work matches claimed amount
     if (fCheckPOW && !CheckProofOfWork(block.GetHash(), block.nBits, postfork, consensusParams))
+        printf("genesis.nNonce = %s\n", block.nNonce.ToString().c_str());
+        uint32_t nounce = block.nBits;
+        printf("genesis.nNonce = %s\n", nounce);
+        while(!CheckProofOfWork(block.GetHash(), nounce, postfork, consensusParams)) {
+            nounce++;
+            printf("genesis.nNonce = %zu\n", nounce);
+        }
         return state.DoS(50, false, REJECT_INVALID, "high-hash", false, "proof of work failed");
 
     return true;

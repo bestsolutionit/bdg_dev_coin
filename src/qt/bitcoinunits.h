@@ -52,15 +52,15 @@ public:
     explicit BitcoinUnits(QObject *parent);
 
     /** Bitcoin units.
-     *  Bitcoin units (Bitcoin Gold unit work the same as Bitoin).
+     *  Bitcoin units (Micro Bitcoin unit work the same as Bitcoin).
      *  @note Source: https://en.bitcoin.it/wiki/Units . 
      *  Please add only sensible ones
      */
     enum Unit
     {
-        BTG,
-        mBTG,
-        uBTG
+        MBC,
+        mMBC,
+        uMBC
     };
 
     enum SeparatorStyle

@@ -2,8 +2,8 @@
 
 *.exe
 src/bitcoin
-src/bgoldd
-src/bgold-cli
+src/mbitcoind
+src/mbitcoin-cli
 src/bitcoin-tx
 src/test/test_bitcoin
 src/test/test_bitcoin_fuzzy
